@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/10 15:49:17 by samperez          #+#    #+#             */
-/*   Updated: 2024/10/04 11:44:59 by samperez         ###   ########.fr       */
+/*   Created: 2024/11/25 16:46:06 by samperez          #+#    #+#             */
+/*   Updated: 2024/11/25 16:50:38 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/push_swap.h"
 
-int	ft_isdigit(int c)
+void	pa(t_stack_node *stack_a, t_stack_node *stack_b)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	
+}
+
+void	pb(t_stack_node *stack_b, t_stack_node *stack_a)
+{
+
 }

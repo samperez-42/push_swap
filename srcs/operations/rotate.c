@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 11:28:34 by samperez          #+#    #+#             */
-/*   Updated: 2024/10/10 18:52:11 by samperez         ###   ########.fr       */
+/*   Created: 2024/11/25 16:47:59 by samperez          #+#    #+#             */
+/*   Updated: 2024/11/25 16:50:48 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/push_swap.h"
 
-// Creates a new string result of applying a function through a string
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ra(t_stack_node *stack)
 {
-	int		i;
-	char	*res;
 
-	i = 0;
-	res = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!res || !s)
-		return (NULL);
-	while (s[i])
-	{
-		res[i] = f(i, s[i]);
-		i++;
-	}
-	res[i] = '\0';
-	return (res);
+}
+
+void	rb(t_stack_node *stack_b)
+{
+
+}
+
+void	rr(t_stack_node *stack_a, t_stack_node *stack_b)
+{
+
 }
