@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 10:49:56 by samperez          #+#    #+#             */
-/*   Updated: 2024/11/25 15:30:28 by samperez         ###   ########.fr       */
+/*   Created: 2024/10/10 17:26:38 by samperez          #+#    #+#             */
+/*   Updated: 2024/10/10 17:56:24 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdbool.h>
-# include <limits.h>
-# include "ft_printf/ft_printf.h"
-# include "libft_push_swap/libft.h"
-
-typedef struct s_stack_node
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	int					nbr;
-	int					index;
-	int					push_cost;
-	bool				above_medium;
-	bool				cheapest;
-	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-}				t_stack_node;
+	t_list	*tmp;
 
-
-#endif
+	if (!(*lst))
+		return ;
+	else
+	{
+		tmp = *lst;
+		while (tmp)
+		{
+			*lst = tmp->next;
+			(*del)(tmp->content);
+			free(tmp);
+			tmp = *lst;
+		}
+	}
+}

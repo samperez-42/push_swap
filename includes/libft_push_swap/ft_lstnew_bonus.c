@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 10:49:56 by samperez          #+#    #+#             */
-/*   Updated: 2024/11/25 15:30:28 by samperez         ###   ########.fr       */
+/*   Created: 2024/10/10 13:37:18 by samperez          #+#    #+#             */
+/*   Updated: 2024/10/10 13:45:14 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdbool.h>
-# include <limits.h>
-# include "ft_printf/ft_printf.h"
-# include "libft_push_swap/libft.h"
-
-typedef struct s_stack_node
+t_list	*ft_lstnew(void *content)
 {
-	int					nbr;
-	int					index;
-	int					push_cost;
-	bool				above_medium;
-	bool				cheapest;
-	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-}				t_stack_node;
+	t_list	*node;
 
-
-#endif
+	node = (t_list *)malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
+}

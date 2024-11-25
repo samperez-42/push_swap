@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 10:49:56 by samperez          #+#    #+#             */
-/*   Updated: 2024/11/25 15:30:28 by samperez         ###   ########.fr       */
+/*   Created: 2024/09/16 20:27:20 by samperez          #+#    #+#             */
+/*   Updated: 2024/11/08 10:43:33 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdbool.h>
-# include <limits.h>
-# include "ft_printf/ft_printf.h"
-# include "libft_push_swap/libft.h"
-
-typedef struct s_stack_node
+// Scans memory and compares 'n' bytes
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int					nbr;
-	int					index;
-	int					push_cost;
-	bool				above_medium;
-	bool				cheapest;
-	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-}				t_stack_node;
+	const unsigned char	*str1;
+	const unsigned char	*str2;
+	size_t				i;
 
-
-#endif
+	i = 0;
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (i < n)
+	{
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
+	return (0);
+}

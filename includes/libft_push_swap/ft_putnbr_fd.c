@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 10:49:56 by samperez          #+#    #+#             */
-/*   Updated: 2024/11/25 15:30:28 by samperez         ###   ########.fr       */
+/*   Created: 2024/09/23 11:00:22 by samperez          #+#    #+#             */
+/*   Updated: 2024/10/04 11:45:06 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdbool.h>
-# include <limits.h>
-# include "ft_printf/ft_printf.h"
-# include "libft_push_swap/libft.h"
-
-typedef struct s_stack_node
+// This function is capable of writing the total range of an int
+void	ft_putnbr_fd(int n, int fd)
 {
-	int					nbr;
-	int					index;
-	int					push_cost;
-	bool				above_medium;
-	bool				cheapest;
-	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-}				t_stack_node;
+	unsigned int	num;
 
-
-#endif
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+	}
+	num = n;
+	if (num >= 10)
+	{
+		ft_putnbr_fd(num / 10, fd);
+		ft_putnbr_fd(num % 10, fd);
+	}
+	else
+		ft_putchar_fd(num + '0', fd);
+}

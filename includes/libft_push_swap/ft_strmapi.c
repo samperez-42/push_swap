@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 10:49:56 by samperez          #+#    #+#             */
-/*   Updated: 2024/11/25 15:30:28 by samperez         ###   ########.fr       */
+/*   Created: 2024/10/02 11:28:34 by samperez          #+#    #+#             */
+/*   Updated: 2024/10/10 18:52:11 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdbool.h>
-# include <limits.h>
-# include "ft_printf/ft_printf.h"
-# include "libft_push_swap/libft.h"
-
-typedef struct s_stack_node
+// Creates a new string result of applying a function through a string
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int					nbr;
-	int					index;
-	int					push_cost;
-	bool				above_medium;
-	bool				cheapest;
-	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-}				t_stack_node;
+	int		i;
+	char	*res;
 
-
-#endif
+	i = 0;
+	res = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!res || !s)
+		return (NULL);
+	while (s[i])
+	{
+		res[i] = f(i, s[i]);
+		i++;
+	}
+	res[i] = '\0';
+	return (res);
+}
