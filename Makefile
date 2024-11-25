@@ -9,7 +9,7 @@ SRCS_FOLDER = srcs
 OBJ_FOLDER = objs
 
 # Source files
-SRC = $(SRCS_FOLDER)/push_swap.c $(SRCS_FOLDER)/operations.c $(SRCS_FOLDER)/error_checking.c
+SRC = $(SRCS_FOLDER)/main.c $(SRCS_FOLDER)/operations.c $(SRCS_FOLDER)/error_checking.c
 
 # Object files
 OBJ = $(SRC:$(SRCS_FOLDER)/%.c=$(OBJ_FOLDER)/%.o)
@@ -25,7 +25,7 @@ all: $(NAME)
 
 # Rule to create the executable
 $(NAME): $(OBJ)
-	make -C includes/libft/Makefile
+	make -C includes/libft_push_swap/Makefile
 	make -C includes/ft_printf/Makefile
 	ar rcs $(NAME) $(OBJ)
 
