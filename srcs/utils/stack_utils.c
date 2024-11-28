@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:26:08 by samperez          #+#    #+#             */
-/*   Updated: 2024/11/28 15:41:20 by samperez         ###   ########.fr       */
+/*   Updated: 2024/11/28 17:01:23 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,11 @@ t_stack_node	*get_first_node(t_stack_node *stack)
 	return (tmp);
 }
 
-t_stack_node	*get_last_node(t_stack_node *stack)
+t_stack_node	*get_last_node(t_stack_node *head)
 {
-	t_stack_node	*tmp;
-
-	if (!stack)
+	if (NULL == head)
 		return (NULL);
-	tmp = stack;
-	while (tmp->next)
-		tmp = tmp->next;
-	return (tmp);
+	while (head->next)
+		head = head->next;
+	return (head);
 }
