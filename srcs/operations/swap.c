@@ -6,40 +6,46 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:43:49 by samperez          #+#    #+#             */
-/*   Updated: 2024/11/25 16:50:57 by samperez         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:51:30 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	sa(t_stack_node *stack_a)
+static void	swap(t_stack_node **head)
 {
-	int	*tmp;
+	int	len;
 
-	if (!stack_a)
+	len = stack_size(*head);
+	if (NULL == *head || NULL == head || 1 == len)
 		return ;
-	if (ft_lstsize(stack_a) <= 1)
-		return ;
-	tmp = stack_a->next->nbr;
-	stack_a->next->nbr = stack_a->nbr;
-	stack_a->nbr = tmp;
+	*head = (*head)->next;
+	(*head)->prev->prev = *head;
+	(*head)->prev->next = (*head)->next;
+	if ((*head)->next)
+		(*head)->next->prev = (*head)->prev;
+	(*head)->next = (*head)->prev;
+	(*head)->prev = NULL;
 }
 
-void	sb(t_stack_node *stack_b)
+void	sa(t_stack_node **a, bool *checker)
 {
-	int	*tmp;
-
-	if (!stack_b)
-		return ;
-	if (ft_lstsize(stack_b) <= 1)
-		return ;
-	tmp = stack_b->next->nbr;
-	stack_b->next->nbr = stack_b->nbr;
-	stack_b->nbr = tmp;
+	swap(a);
+	if (!checker)
+		write(1, "sa\n", 3);
 }
 
-void	ss(t_stack_node *stack_a, t_stack_node *stack_b)
+void	sb(t_stack_node **b, bool *checker)
 {
-	sa(stack_a);
-	sb(stack_a);
+	swap(b);
+	if (!checker)
+		write(1, "sb\n", 3);
+}
+
+void	ss(t_stack_node **a, t_stack_node **b, bool *checker)
+{
+	swap(a);
+	swap(b);
+	if (!checker)
+		write(1, "ss\n", 3);
 }
