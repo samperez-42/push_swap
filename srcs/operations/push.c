@@ -6,13 +6,13 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:46:06 by samperez          #+#    #+#             */
-/*   Updated: 2024/11/28 12:55:34 by samperez         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:00:23 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	push(t_stack_node **dest, t_stack_node **src)
+static void	push(t_stack_node **dest, t_stack_node **src)
 {
 	t_stack_node	*node_to_push;
 
