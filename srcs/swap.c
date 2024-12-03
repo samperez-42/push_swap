@@ -6,11 +6,11 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:43:49 by samperez          #+#    #+#             */
-/*   Updated: 2024/11/28 15:51:30 by samperez         ###   ########.fr       */
+/*   Updated: 2024/12/03 12:00:29 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	swap(t_stack_node **head)
 {

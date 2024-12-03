@@ -1,24 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_checking.c                                   :+:      :+:    :+:   */
+/*   push_swap_split.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 11:34:16 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/03 12:06:24 by samperez         ###   ########.fr       */
+/*   Created: 2024/12/03 11:53:40 by samperez          #+#    #+#             */
+/*   Updated: 2024/12/03 11:53:41 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-
-/* void	*free_stack_a(t_stack_node stack_a)
-{
-	
-}
-
-void	check_params(char	*params)
-{
-	
-}
- */

@@ -6,16 +6,16 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:26:08 by samperez          #+#    #+#             */
-/*   Updated: 2024/11/28 17:01:23 by samperez         ###   ########.fr       */
+/*   Updated: 2024/12/03 12:06:00 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 int	stack_size(t_stack_node *stack)
 {
-	int		i;
-	t_list	*tmp;
+	int				i;
+	t_stack_node	*tmp;
 
 	if (!stack)
 		return (0);
