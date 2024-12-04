@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:49:56 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/03 12:03:31 by samperez         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:04:49 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdbool.h>
 # include <limits.h>
-# include "ft_printf/ft_printf.h"
 # include "libft_push_swap/libft.h"
 
 typedef struct s_stack_node

@@ -1,59 +1,31 @@
-# Compiler to use
 CC = cc
-
-# Compiler flags
 CFLAGS = -Werror -Wall -Wextra
 
-# Source and object directories
-SRCS_FOLDER = srcs
-OBJ_FOLDER = objs
+SRC = srcs/error_checking.c srcs/main.c srcs/push.c srcs/reverse_rotate.c srcs/rotate.c srcs/stack_utils.c srcs/swap.c
 
-# Source files
-SRC = 	$(SRCS_FOLDER)/main.c \
-		$(SRCS_FOLDER)/error_checking.c \
-		$(SRCS_FOLDER)/push_swap_split.c \
-		$(SRCS_FOLDER)/push.c \
-		$(SRCS_FOLDER)/reverse_rotate.c \
-		$(SRCS_FOLDER)/rotate.c \
-		$(SRCS_FOLDER)/stack_utils.c \
-		$(SRCS_FOLDER)/swap.c
+OBJ = $(SRC:%.c=%.o)
 
-# Object files
-OBJ = $(SRC:$(SRCS_FOLDER)/%.c=$(OBJ_FOLDER)/%.o)
-
-# Output executable name
 NAME = push_swap
+LIBFT_DIR = includes/libft_push_swap
+LIBFT = $(LIBFT_DIR)/libft.a
 
-# Header file
-LIB = push_swap.h
-
-# Default target
 all: $(NAME)
 
-# Rule to create the executable
-# We redirect the output with > /dev/null 2>&1 to silence any messages
-$(NAME): $(OBJ)
-	@make -C includes/libft_push_swap > /dev/null 2>&1
-	@make -C includes/ft_printf > /dev/null 2>&1
-	@ar rcs $(NAME) $(OBJ)
+$(NAME): $(OBJ) $(LIBFT)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -L$(LIBFT_DIR) -lft
 
-# Rule to compile .c files to .o files
-$(OBJ_FOLDER)/%.o: $(SRCS_FOLDER)/%.c
-	@mkdir -p $(OBJ_FOLDER)
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
+
+%.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-# Clean up object files
 clean:
 	@rm -f $(OBJ)
-	@rmdir $(OBJ_FOLDER) > /dev/null 2>&1 || true
-	@make clean -C includes/libft_push_swap > /dev/null 2>&1
-	@make clean -C includes/ft_printf > /dev/null 2>&1
+	$(MAKE) -C $(LIBFT_DIR) clean
 
-# Clean up object files and the executable
-override fclean: clean
+fclean: clean
 	@rm -f $(NAME)
-	@make fclean -C includes/libft_push_swap > /dev/null 2>&1
-	@make fclean -C includes/ft_printf > /dev/null 2>&1
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
-# Rebuild everything
-override re: fclean all
+re: fclean all
