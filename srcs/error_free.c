@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 11:34:16 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/10 17:51:13 by samperez         ###   ########.fr       */
+/*   Updated: 2024/12/10 18:25:36 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,26 +63,23 @@ int	error_syntax(char	*argv)
 }
 
 // Checks repeating values
-int	error_repetition(t_stack_node **a, int nbr)
+int	error_repetition(t_stack_node *a, int nbr)
 {
-	t_stack_node	*current;
-
-	if (!a)
-		return (0);
-	current = *a;
-	while (current)
+	while (a)
 	{
-		if (nbr == current->nbr)
+		if (nbr == a->nbr)
 			return (1);
-		current = current->next;
+		a = a->next;
 	}
 	return (0);
 }
 
-// Frees the stack (and the argv in case it's allocated)
+// Frees the stack (and the argv in case it's allocated) and terminates the program
 void	error_free(t_stack_node **a, char **argv, bool argc_2)
 {
 	free_stack(a);
 	if (argc_2 == true)
 		free_argv(argv);
+	write(2, "Error\n", 6);
+	exit(1);
 }

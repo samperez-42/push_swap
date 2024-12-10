@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:26:08 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/10 18:00:53 by samperez         ###   ########.fr       */
+/*   Updated: 2024/12/10 18:20:49 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	append_node(t_stack_node **a, int nbr)
 		return ;
 	node->nbr = nbr;
 	node->next = NULL;
-	if (!a)
+	if (NULL == *a)
 	{
 		*a = node;
 		node->prev = NULL;
@@ -58,7 +58,7 @@ void	append_node(t_stack_node **a, int nbr)
 	else
 	{
 		last_node = get_last_node(*a);
-		last_node->next = node; // Segfault here
+		last_node->next = node;
 		node->prev = last_node;
 	}
 }
