@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:26:08 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/10 17:09:33 by samperez         ###   ########.fr       */
+/*   Updated: 2024/12/10 18:00:53 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,6 @@ int	stack_size(t_stack_node *stack)
 	return (i);
 }
 
-t_stack_node	*get_first_node(t_stack_node *stack)
-{
-	t_stack_node	*tmp;
-
-	if (!stack)
-		return (NULL);
-	tmp = stack;
-	while (tmp->prev)
-		tmp = tmp->prev;
-	return (tmp);
-}
-
 t_stack_node	*get_last_node(t_stack_node *head)
 {
 	if (NULL == head)
@@ -53,10 +41,13 @@ t_stack_node	*get_last_node(t_stack_node *head)
 void	append_node(t_stack_node **a, int nbr)
 {
 	t_stack_node	*node;
+	t_stack_node	*last_node;
 
+	if (!a)
+		return ;
 	node = malloc(sizeof(t_stack_node));
 	if (!node)
-		return (NULL);
+		return ;
 	node->nbr = nbr;
 	node->next = NULL;
 	if (!a)
@@ -66,7 +57,8 @@ void	append_node(t_stack_node **a, int nbr)
 	}
 	else
 	{
-		get_last_node(a)->next = node;
-		node->prev = get_last_node(a);
+		last_node = get_last_node(*a);
+		last_node->next = node; // Segfault here
+		node->prev = last_node;
 	}
 }

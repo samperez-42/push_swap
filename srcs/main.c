@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:50:00 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/10 16:47:17 by samperez         ###   ########.fr       */
+/*   Updated: 2024/12/10 17:45:31 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ int	main(int argc, char **argv)
 		return (0);
 	init_stack(&a, argv + 1, 2 == argc);
 	free_argv(argv);
-	free_stack(a);
+	free_stack(&a);
 }

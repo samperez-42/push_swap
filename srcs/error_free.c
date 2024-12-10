@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 11:34:16 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/10 17:29:32 by samperez         ###   ########.fr       */
+/*   Updated: 2024/12/10 17:51:13 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void	free_argv(char **argv)
 }
 
 // Frees the stack
-void	*free_stack(t_stack_node **stack)
+void	free_stack(t_stack_node **stack)
 {
 	t_stack_node	*current;
 	t_stack_node	*tmp;
 
 	if (!stack)
-		return (NULL);
+		return ;
 	current = *stack;
 	while (current)
 	{

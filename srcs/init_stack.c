@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:21:23 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/10 17:25:24 by samperez         ###   ########.fr       */
+/*   Updated: 2024/12/10 17:54:08 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	init_stack(t_stack_node **a, char **argv, bool argc_2)
 	int		i;
 
 	nbr = 0;
+	i = 0;
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
@@ -28,7 +29,9 @@ void	init_stack(t_stack_node **a, char **argv, bool argc_2)
 			error_free(a, argv, argc_2);
 		if (error_repetition(a, (int)nbr))
 			error_free(a, argv, argc_2);
-		append_node(a, argv[i]);
+		append_node(a, (int)nbr);
 		++i;
 	}
+	if (argc_2 == true)
+		free_argv(argv);
 }
