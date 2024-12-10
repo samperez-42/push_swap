@@ -6,12 +6,11 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:50:00 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/10 11:20:19 by samperez         ###   ########.fr       */
+/*   Updated: 2024/12/10 16:47:17 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
@@ -26,5 +25,7 @@ int	main(int argc, char **argv)
 		argv = ft_ps_split(argv[1], ' ');
 	if (!argv)
 		return (0);
-	// Now we have mimicked the argv and we can send it with argv++
+	init_stack(&a, argv + 1, 2 == argc);
+	free_argv(argv);
+	free_stack(a);
 }

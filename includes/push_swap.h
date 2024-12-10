@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:49:56 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/10 10:49:14 by samperez         ###   ########.fr       */
+/*   Updated: 2024/12/10 17:31:44 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,15 @@ typedef struct s_stack_node
 	struct s_stack_node	*prev;
 }				t_stack_node;
 
-char	**ft_ps_split(char const *s, char c);
+char			**ft_ps_split(char const *s, char c);
+void			init_stack(t_stack_node **a, char **argv, bool argc_2);
+
+// Error / Free
+void			free_argv(char **argv);
+void			*free_stack(t_stack_node **stack);
+int				error_syntax(char *argv);
+int				error_repetition(t_stack_node **a, int nbr);
+void			error_free(t_stack_node **a, char **argv, bool argc_2);
 
 // Stack utilities
 int				stack_size(t_stack_node *stack);

@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 11:31:46 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/10 11:16:41 by samperez         ###   ########.fr       */
+/*   Updated: 2024/12/10 11:25:20 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static char	**fill_res(char **res, char const *s, char c)
 	j = 0;
 	res[j] = malloc(sizeof(char));
 	if (!res[j])
-		return (NULL);
+		return (free_mem(res, j), NULL);
 	j++;
 	while (s[start])
 	{
