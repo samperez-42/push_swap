@@ -1,7 +1,7 @@
 CC = cc
 CFLAGS = -Werror -Wall -Wextra
 
-SRC = srcs/error_checking.c srcs/main.c srcs/push.c srcs/reverse_rotate.c srcs/rotate.c srcs/stack_utils.c srcs/swap.c
+SRC = srcs/error_checking.c srcs/main.c srcs/push.c srcs/reverse_rotate.c srcs/rotate.c srcs/stack_utils.c srcs/swap.c srcs/split.c
 
 OBJ = $(SRC:%.c=%.o)
 

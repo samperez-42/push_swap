@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:50:00 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/04 14:08:26 by samperez         ###   ########.fr       */
+/*   Updated: 2024/12/10 11:20:19 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,8 @@ int	main(int argc, char **argv)
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
+		argv = ft_ps_split(argv[1], ' ');
 	if (!argv)
-		return (NULL);
-	/*int i = 0;
-	while (argv[i])
-	{
-		printf("%s", argv[i]);
-		i++;
-	}
-	(void) a;
-	(void) b; */
+		return (0);
+	// Now we have mimicked the argv and we can send it with argv++
 }

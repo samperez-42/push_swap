@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:49:56 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/04 13:04:49 by samperez         ###   ########.fr       */
+/*   Updated: 2024/12/10 10:49:14 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_stack_node
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
 }				t_stack_node;
+
+char	**ft_ps_split(char const *s, char c);
 
 // Stack utilities
 int				stack_size(t_stack_node *stack);
