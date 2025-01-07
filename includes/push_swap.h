@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:49:56 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/10 18:04:51 by samperez         ###   ########.fr       */
+/*   Updated: 2024/12/11 12:56:50 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,19 @@ void			append_node(t_stack_node **a, int nbr);
 
 /* Stack Operations */
 // Push functions
-void			pa(t_stack_node **a, t_stack_node **b, bool *checker);
-void			pb(t_stack_node **b, t_stack_node **a, bool *checker);
+void			pa(t_stack_node **a, t_stack_node **b);
+void			pb(t_stack_node **b, t_stack_node **a);
 // Swap functions
-void			sa(t_stack_node **a, bool *checker);
-void			sb(t_stack_node **b, bool *checker);
-void			ss(t_stack_node **a, t_stack_node **b, bool *checker);
+void			sa(t_stack_node **a);
+void			sb(t_stack_node **b);
+void			ss(t_stack_node **a, t_stack_node **b);
 // Rotate functions
-void			ra(t_stack_node **a, bool *checker);
-void			rb(t_stack_node **b, bool *checker);
-void			rr(t_stack_node **a, t_stack_node **b, bool *checker);
+void			ra(t_stack_node **a);
+void			rb(t_stack_node **b);
+void			rr(t_stack_node **a, t_stack_node **b);
 // Reverse rotate functions
-void			rra(t_stack_node **a, bool *checker);
-void			rrb(t_stack_node **b, bool *checker);
-void			rrr(t_stack_node **a, t_stack_node **b, bool *checker);
+void			rra(t_stack_node **a);
+void			rrb(t_stack_node **b);
+void			rrr(t_stack_node **a, t_stack_node **b);
 
 #endif
