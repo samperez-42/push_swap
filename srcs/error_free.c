@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 11:34:16 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/10 18:25:36 by samperez         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:23:01 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ int	error_repetition(t_stack_node *a, int nbr)
 	return (0);
 }
 
-// Frees the stack (and the argv in case it's allocated) and terminates the program
+/* Frees the stack (and the argv in case it's allocated) 
+and terminates the program */
 void	error_free(t_stack_node **a, char **argv, bool argc_2)
 {
 	free_stack(a);

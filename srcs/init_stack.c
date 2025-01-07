@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:21:23 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/10 18:14:36 by samperez         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:24:47 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	init_stack(t_stack_node **a, char **argv, bool argc_2)
 	{
 		if (error_syntax(argv[i]))
 			error_free(a, argv, argc_2);
-		nbr = atol(argv[i]); // Need to implement atol
+		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
 			error_free(a, argv, argc_2);
 		if (error_repetition(*a, (int)nbr))
