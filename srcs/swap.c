@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:43:49 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/11 12:57:11 by samperez         ###   ########.fr       */
+/*   Updated: 2025/01/09 13:42:22 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,14 @@
 
 static void	swap(t_stack_node **head)
 {
-	int	len;
+	int	tmp;
 
-	len = stack_size(*head);
-	if (NULL == *head || NULL == head || 1 == len)
+	tmp = 0;
+	if (NULL == *head || NULL == head || 1 == stack_size(*head))
 		return ;
-	*head = (*head)->next;
-	(*head)->prev->prev = *head;
-	(*head)->prev->next = (*head)->next;
-	if ((*head)->next)
-		(*head)->next->prev = (*head)->prev;
-	(*head)->next = (*head)->prev;
-	(*head)->prev = NULL;
+	tmp = (*head)->nbr;
+	(*head)->nbr = (*head)->next->nbr;
+	(*head)->next->nbr = tmp;
 }
 
 void	sa(t_stack_node **a)
