@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:49:56 by samperez          #+#    #+#             */
-/*   Updated: 2025/01/07 13:28:08 by samperez         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:30:47 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct s_stack_node
 	int					nbr;
 	int					index;
 	int					push_cost;
-	bool				above_medium;
 	bool				cheapest;
 	struct s_stack_node	*target_node;
 	struct s_stack_node	*next;
@@ -33,8 +32,8 @@ char			**ft_ps_split(char const *s, char c);
 long			ft_atol(const char *nptr);
 
 // Sorting functions
-void			sort_two(t_stack_node *head);
-void			sort_three(t_stack_node *head);
+bool			stack_sorted(t_stack_node *stack);
+void			tiny_sort(t_stack_node **a);
 
 // Error / Free
 void			free_argv(char **argv);

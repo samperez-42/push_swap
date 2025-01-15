@@ -6,52 +6,54 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 12:49:44 by samperez          #+#    #+#             */
-/*   Updated: 2025/01/07 13:19:29 by samperez         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:33:45 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_two(t_stack_node *head)
+bool	stack_sorted(t_stack_node	*stack)
 {
-	if (NULL == head || stack_size(head) != 2)
-		return ;
-	if (head->nbr > head->next->nbr)
-		sa(&head);
+	if (NULL == stack)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->nbr > stack->next->nbr)
+			return (false);
+		stack = stack->next;
+	}
+	return (true);
 }
 
-static void	sort_three_case1(t_stack_node *head, t_stack_node *third)
+t_stack_node	*find_highest_node(t_stack_node *stack)
 {
-	if (head->nbr > third->nbr)
-		rra(&head);
-	else
+	int				highest;
+	t_stack_node	*highest_node;
+
+	if (NULL == stack)
+		return (NULL);
+	highest = INT_MIN;
+	while (stack)
 	{
-		rra(&head);
-		sa(&head);
+		if (stack->nbr > highest)
+		{
+			highest = stack->nbr;
+			highest_node = stack;
+		}
+		stack = stack->next;
 	}
+	return (highest_node);
 }
 
-void	sort_three(t_stack_node *head)
+void	tiny_sort(t_stack_node **a)
 {
-	t_stack_node	*second;
-	t_stack_node	*third;
+	t_stack_node	*highest_node;
 
-	second = head->next;
-	third = head->next->next;
-	if (head->nbr > second->nbr && second->nbr > third->nbr)
-	{
-		ra(&head);
-		sa(&head);
-	}
-	else if (head->nbr < second->nbr && second->nbr > third->nbr)
-	{
-		sort_three_case1(head, third);
-	}
-	else if (head->nbr > second->nbr && second->nbr < third->nbr)
-	{
-		if (head->nbr > third->nbr)
-			ra(&head);
-		else
-			sa(&head);
-	}
+	highest_node = find_highest_node(*a);
+	if (*a == highest_node)
+		ra(a);
+	else if ((*a)->next == highest_node)
+		rra(a);
+	if ((*a)->nbr > (*a)->next->nbr)
+		sa(a);
 }

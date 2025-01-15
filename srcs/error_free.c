@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 11:34:16 by samperez          #+#    #+#             */
-/*   Updated: 2025/01/07 13:23:01 by samperez         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:20:14 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,11 @@ int	error_syntax(char	*argv)
 // Checks repeating values
 int	error_repetition(t_stack_node *a, int nbr)
 {
+	if (NULL == a)
+		return (0);
 	while (a)
 	{
-		if (nbr == a->nbr)
+		if (a->nbr == nbr)
 			return (1);
 		a = a->next;
 	}

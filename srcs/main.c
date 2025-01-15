@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:50:00 by samperez          #+#    #+#             */
-/*   Updated: 2025/01/07 15:19:14 by samperez         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:33:07 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,12 @@ int	main(int argc, char **argv)
 	if (!argv)
 		return (0);
 	init_stack(&a, argv + 1, 2 == argc);
-	if (stack_size(a) == 2)
-		sort_two(a);
-	else if (stack_size(a) == 3)
-		sort_three(a);
+	if (!stack_sorted(a))
+	{
+		if (stack_size(a) == 2)
+			sa(&a);
+		else if (stack_size(a) == 3)
+			tiny_sort(&a);
+	}
 	free_stack(&a);
 }

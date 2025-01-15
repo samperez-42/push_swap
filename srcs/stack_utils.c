@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:26:08 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/10 18:20:49 by samperez         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:21:31 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ void	append_node(t_stack_node **a, int nbr)
 	t_stack_node	*node;
 	t_stack_node	*last_node;
 
-	if (!a)
+	if (NULL == a)
 		return ;
 	node = malloc(sizeof(t_stack_node));
-	if (!node)
+	if (NULL == node)
 		return ;
-	node->nbr = nbr;
 	node->next = NULL;
+	node->nbr = nbr;
 	if (NULL == *a)
 	{
 		*a = node;
