@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:50:00 by samperez          #+#    #+#             */
-/*   Updated: 2025/01/15 14:33:07 by samperez         ###   ########.fr       */
+/*   Updated: 2025/01/17 14:47:54 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	main(int argc, char **argv)
 			sa(&a);
 		else if (stack_size(a) == 3)
 			tiny_sort(&a);
+		else
+			push_swap(&a, &b);
 	}
 	free_stack(&a);
 }
