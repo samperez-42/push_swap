@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:26:08 by samperez          #+#    #+#             */
-/*   Updated: 2025/01/15 14:21:31 by samperez         ###   ########.fr       */
+/*   Updated: 2025/01/17 12:56:16 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,22 @@ int	stack_size(t_stack_node *stack)
 		i++;
 	}
 	return (i);
+}
+
+t_stack_node	*return_highest_node(t_stack_node *head)
+{
+	t_stack_node	*highest;
+
+	highest = head;
+	if (NULL == head)
+		return (NULL);
+	while (head->next)
+	{
+		if (head->nbr > highest->nbr)
+			highest = head;
+		head = head->next;
+	}
+	return (highest);
 }
 
 t_stack_node	*get_last_node(t_stack_node *head)
