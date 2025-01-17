@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:26:08 by samperez          #+#    #+#             */
-/*   Updated: 2025/01/17 12:56:16 by samperez         ###   ########.fr       */
+/*   Updated: 2025/01/17 14:43:33 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,24 @@ int	stack_size(t_stack_node *stack)
 	return (i);
 }
 
+t_stack_node	*find_smallest(t_stack_node *head)
+{
+	t_stack_node	*smallest;
+
+	smallest = head;
+	if (NULL == head)
+		return (NULL);
+	while (head->next)
+	{
+		if (head->nbr < smallest->nbr)
+			smallest = head;
+		head = head->next;
+	}
+	if (head->nbr < smallest->nbr)
+		smallest = head;
+	return (smallest);
+}
+
 t_stack_node	*return_highest_node(t_stack_node *head)
 {
 	t_stack_node	*highest;
@@ -42,6 +60,8 @@ t_stack_node	*return_highest_node(t_stack_node *head)
 			highest = head;
 		head = head->next;
 	}
+	if (head->nbr > highest->nbr)
+		highest = head;
 	return (highest);
 }
 
