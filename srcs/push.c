@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: samperez <samperez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:46:06 by samperez          #+#    #+#             */
-/*   Updated: 2024/12/11 12:57:27 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:36:19 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	push(t_stack_node **dest, t_stack_node **src)
+static void	push(t_stack **dest, t_stack **src)
 {
-	t_stack_node	*node_to_push;
+	t_stack	*node_to_push;
 
 	if (!src)
 		return ;
@@ -36,13 +36,13 @@ static void	push(t_stack_node **dest, t_stack_node **src)
 	}
 }
 
-void	pa(t_stack_node **a, t_stack_node **b)
+void	pa(t_stack **a, t_stack **b)
 {
 	push(a, b);
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_stack_node **b, t_stack_node **a)
+void	pb(t_stack **b, t_stack **a)
 {
 	push(b, a);
 	write(1, "pb\n", 3);

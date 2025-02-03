@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   push_swap_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samperez <samperez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 11:21:23 by samperez          #+#    #+#             */
-/*   Updated: 2025/02/03 11:36:19 by samperez         ###   ########.fr       */
+/*   Created: 2025/02/03 11:01:54 by samperez          #+#    #+#             */
+/*   Updated: 2025/02/03 11:42:56 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// Implement atol
-void	init_stack(t_stack **a, char **argv, bool argc_2)
+t_stack	*check_cheapest(t_stack **a, t_stack **b)
 {
-	long	nbr;
-	int		i;
+	
+}
 
-	nbr = 0;
-	i = 0;
-	while (argv[i])
-	{
-		if (error_syntax(argv[i]))
-			error_free(a, argv, argc_2);
-		nbr = ft_atol(argv[i]);
-		if (nbr > INT_MAX || nbr < INT_MIN)
-			error_free(a, argv, argc_2);
-		if (error_repetition(*a, (int)nbr))
-			error_free(a, argv, argc_2);
-		append_node(a, (int)nbr);
-		++i;
-	}
-	if (argc_2 == true)
-		free_argv(argv);
+void	move_cheapest(t_stack **a, t_stack **b, t_stack *cheapest)
+{
+	
 }

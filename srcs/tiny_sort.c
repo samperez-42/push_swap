@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   tiny_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: samperez <samperez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 12:49:44 by samperez          #+#    #+#             */
-/*   Updated: 2025/01/15 14:33:45 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:38:09 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-bool	stack_sorted(t_stack_node	*stack)
+bool	stack_sorted(t_stack	*stack)
 {
 	if (NULL == stack)
 		return (1);
@@ -25,10 +25,10 @@ bool	stack_sorted(t_stack_node	*stack)
 	return (true);
 }
 
-t_stack_node	*find_highest_node(t_stack_node *stack)
+t_stack	*find_highest_node(t_stack *stack)
 {
-	int				highest;
-	t_stack_node	*highest_node;
+	int			highest;
+	t_stack		*highest_node;
 
 	if (NULL == stack)
 		return (NULL);
@@ -45,9 +45,9 @@ t_stack_node	*find_highest_node(t_stack_node *stack)
 	return (highest_node);
 }
 
-void	tiny_sort(t_stack_node **a)
+void	tiny_sort(t_stack **a)
 {
-	t_stack_node	*highest_node;
+	t_stack	*highest_node;
 
 	highest_node = find_highest_node(*a);
 	if (*a == highest_node)

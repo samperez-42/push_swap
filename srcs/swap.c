@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: samperez <samperez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:43:49 by samperez          #+#    #+#             */
-/*   Updated: 2025/01/09 13:42:22 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:36:19 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	swap(t_stack_node **head)
+static void	swap(t_stack **head)
 {
 	int	tmp;
 
@@ -24,19 +24,19 @@ static void	swap(t_stack_node **head)
 	(*head)->next->nbr = tmp;
 }
 
-void	sa(t_stack_node **a)
+void	sa(t_stack **a)
 {
 	swap(a);
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack_node **b)
+void	sb(t_stack **b)
 {
 	swap(b);
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack_node **a, t_stack_node **b)
+void	ss(t_stack **a, t_stack **b)
 {
 	swap(a);
 	swap(b);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: samperez <samperez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 11:34:16 by samperez          #+#    #+#             */
-/*   Updated: 2025/01/15 14:20:14 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:36:19 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	free_argv(char **argv)
 }
 
 // Frees the stack
-void	free_stack(t_stack_node **stack)
+void	free_stack(t_stack **stack)
 {
-	t_stack_node	*current;
-	t_stack_node	*tmp;
+	t_stack	*current;
+	t_stack	*tmp;
 
 	if (!stack)
 		return ;
@@ -63,7 +63,7 @@ int	error_syntax(char	*argv)
 }
 
 // Checks repeating values
-int	error_repetition(t_stack_node *a, int nbr)
+int	error_repetition(t_stack *a, int nbr)
 {
 	if (NULL == a)
 		return (0);
@@ -78,7 +78,7 @@ int	error_repetition(t_stack_node *a, int nbr)
 
 /* Frees the stack (and the argv in case it's allocated) 
 and terminates the program */
-void	error_free(t_stack_node **a, char **argv, bool argc_2)
+void	error_free(t_stack **a, char **argv, bool argc_2)
 {
 	free_stack(a);
 	if (argc_2 == true)
