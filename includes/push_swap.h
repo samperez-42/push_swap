@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:49:56 by samperez          #+#    #+#             */
-/*   Updated: 2025/02/03 11:36:46 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/03 12:47:08 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct s_stack_node
 	int					nbr;
 	int					index;
 	int					push_cost;
-	bool				cheapest;
 	bool				above_median;
 	struct s_stack_node	*target_node;
 	struct s_stack_node	*next;
@@ -53,6 +52,7 @@ t_stack			*find_smallest(t_stack *head);
 t_stack			*return_highest_node(t_stack *head);
 t_stack			*check_cheapest(t_stack **a, t_stack **b);
 void			move_cheapest_node(t_stack **a, t_stack **b, t_stack *cheapest);
+void			set_position(t_stack **a);
 
 /* Stack Operations */
 // Push functions
