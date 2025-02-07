@@ -3,15 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samperez <samperez@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:50:00 by samperez          #+#    #+#             */
-/*   Updated: 2025/02/03 11:36:19 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/07 13:49:51 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+/* Erase after finishing */
 #include <stdio.h>
+
+void	print_stack(t_stack *stack)
+{
+	while (stack)
+	{
+		printf("\nNumber in stack a: %d\nBelow:%s\nTarget node: %d\nTotal Push Cost: %d\n", stack->nbr, stack->below ? "true" : "false", stack->target_node->nbr, stack->push_cost);
+		stack = stack->next;
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -27,6 +38,8 @@ int	main(int argc, char **argv)
 	if (!argv)
 		return (0);
 	init_stack(&a, argv + 1, 2 == argc);
+	pb(&b, &a);/**/
+	pb(&b, &a);/**/
 	if (!stack_sorted(a))
 	{
 		if (stack_size(a) == 2)
@@ -36,5 +49,7 @@ int	main(int argc, char **argv)
 		else
 			push_swap(&a, &b);
 	}
+	print_stack(a);
 	free_stack(&a);
+	free_stack(&b);
 }

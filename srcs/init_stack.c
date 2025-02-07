@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samperez <samperez@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:21:23 by samperez          #+#    #+#             */
-/*   Updated: 2025/02/03 11:36:19 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:51:26 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// Implement atol
 void	init_stack(t_stack **a, char **argv, bool argc_2)
 {
 	long	nbr;
