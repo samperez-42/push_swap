@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samperez <samperez@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:46:06 by samperez          #+#    #+#             */
-/*   Updated: 2025/02/03 11:36:19 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/10 12:56:04 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ static void	push(t_stack **dest, t_stack **src)
 {
 	t_stack	*node_to_push;
 
-	if (!src)
+	if (!src || !*src)
 		return ;
 	node_to_push = *src;
 	*src = (*src)->next;
 	if (*src)
 		(*src)->prev = NULL;
 	node_to_push->prev = NULL;
-	if (dest == NULL)
+	if (*dest == NULL)
 	{
 		*dest = node_to_push;
 		node_to_push->next = NULL;
@@ -31,8 +31,8 @@ static void	push(t_stack **dest, t_stack **src)
 	else
 	{
 		node_to_push->next = *dest;
-		node_to_push->prev = NULL;
 		*dest = node_to_push;
+		(*dest)->next->prev = *dest;
 	}
 }
 

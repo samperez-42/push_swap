@@ -6,21 +6,11 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:01:54 by samperez          #+#    #+#             */
-/*   Updated: 2025/02/06 17:46:52 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:14:11 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-/* void	check_correct_position(t_stack **a, t_stack **b)
-{
-	
-}*/
-
-/*void	move_nodes(t_stack **a, t_stack **b, t_stack *cheapest)
-{
-	
-} */
 
 static void	find_target_node(t_stack **a, t_stack **b)
 {
@@ -70,15 +60,17 @@ void	set_index(t_stack **stack)
 {
 	int		pos;
 	int		size;
+	int		half;
 	t_stack	*current;
 
-	pos = 1;
+	pos = 0;
 	size = stack_size(*stack);
 	current = *stack;
+	half = (size) / 2;
 	while (current)
 	{
 		current->index = pos;
-		if (pos <= size / 2)
+		if (pos < half)
 			current->below = false;
 		else
 			current->below = true;

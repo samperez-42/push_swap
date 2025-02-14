@@ -6,23 +6,40 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:50:00 by samperez          #+#    #+#             */
-/*   Updated: 2025/02/07 13:49:51 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/14 13:27:58 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-/* Erase after finishing */
-#include <stdio.h>
-
-void	print_stack(t_stack *stack)
+/* #include <stdio.h>
+static void	print_stack(t_stack *a, t_stack *b)
 {
-	while (stack)
+	t_stack	*head_a;
+	t_stack	*head_b;
+
+	head_a = a;
+	printf("\nStack a\n");
+	while (a)
 	{
-		printf("\nNumber in stack a: %d\nBelow:%s\nTarget node: %d\nTotal Push Cost: %d\n", stack->nbr, stack->below ? "true" : "false", stack->target_node->nbr, stack->push_cost);
-		stack = stack->next;
+		printf("Number in stack a: %d  Position: %d", a->nbr, a->index);
+		a = a->next;
+		printf("\n");
 	}
-}
+	if (b)
+	{
+		printf("\nStack b\n");
+		head_b = b;
+		while (b)
+		{
+			printf("Number in stack b: %d Position: %d\n", b->nbr, b->index);
+			b = b->next;
+		}
+		b = head_b;
+	}
+	a = head_a;
+	printf("\n");
+} */
 
 int	main(int argc, char **argv)
 {
@@ -38,8 +55,6 @@ int	main(int argc, char **argv)
 	if (!argv)
 		return (0);
 	init_stack(&a, argv + 1, 2 == argc);
-	pb(&b, &a);/**/
-	pb(&b, &a);/**/
 	if (!stack_sorted(a))
 	{
 		if (stack_size(a) == 2)
@@ -49,7 +64,6 @@ int	main(int argc, char **argv)
 		else
 			push_swap(&a, &b);
 	}
-	print_stack(a);
 	free_stack(&a);
 	free_stack(&b);
 }

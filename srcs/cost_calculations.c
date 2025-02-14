@@ -6,57 +6,27 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 10:40:36 by samperez          #+#    #+#             */
-/*   Updated: 2025/02/07 12:34:26 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/14 10:26:24 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
-static int	handle_rr(t_stack *a, int count)
-{
-	if (a->index > 1 && a->target_node->index > 1)
-	{
-		count = a->index - a->target_node->index + 1;
-		printf("RR Count: %d\n", count);
-	}
-	if (count < 0)
-		count = -count;
-	return (count);
-}
 
-static int	handle_rrr(t_stack *a, int count)
-{
-	count = a->index - a->target_node->index;
-	printf("RRR Count: %d\n", count);
-	if (count < 0)
-		count = -count;
-	return (count);
-}
-
+// We calculate costs depending on the position of our node and its target node
 static void	cost_calculations(t_stack **a, int size_a, int size_b)
 {
-	int	rr_count;
-	int	rrr_count;
-
-	rr_count = 0;
-	rrr_count = 0;
 	if ((*a)->below == false && (*a)->target_node->below == false)
 	{
-		rr_count = handle_rr(*a, rr_count);
-		(*a)->push_cost = (*a)->index
-			+ (*a)->target_node->index - 2 + 1 - rr_count;
+		(*a)->push_cost = 1 + (*a)->index + (*a)->target_node->index;
 	}
 	else if ((*a)->below == true && (*a)->target_node->below == false)
-		(*a)->push_cost = (size_a + 1) - (*a)->index
-			+ (*a)->target_node->index;
+		(*a)->push_cost = 1 + (size_a - (*a)->index) + (*a)->target_node->index;
 	else if ((*a)->below == false && (*a)->target_node->below == true)
-		(*a)->push_cost = (*a)->index - 1
-			+ (size_b + 1) - (*a)->target_node->index + 1;
+		(*a)->push_cost = 1 + (*a)->index + (size_b - (*a)->target_node->index);
 	else if ((*a)->below == true && (*a)->target_node->below == true)
 	{
-		rrr_count = handle_rrr(*a, rrr_count);
-		(*a)->push_cost = (size_a + 1) - (*a)->index
-			+ (size_b + 1) - (*a)->target_node->index + 1 - rrr_count;
+		(*a)->push_cost = 1 + (size_a - (*a)->index)
+			+ (size_b - (*a)->target_node->index);
 	}
 }
 
