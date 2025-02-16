@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   do_move.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: samperez <samperez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:20:58 by samperez          #+#    #+#             */
-/*   Updated: 2025/02/14 13:30:40 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/16 11:56:14 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,47 @@
 
 void	do_rr(t_stack **a, t_stack **b, t_stack *cheapest)
 {
-	if (cheapest->index > cheapest->target_node->index)
+	int	count;
+
+	count = 0;
+	if (cheapest->index >= cheapest->target_node->index)
+		count = cheapest->index - cheapest->target_node->index;
+	else
+		count = cheapest->target_node->index - cheapest->index;
+	while (count != 0)
 	{
-		/* code */
+		rr(a, b);
+		count--;
 	}
-	
+	set_index(a);
+	set_index(b);
 }
 
 void	do_rrr(t_stack **a, t_stack **b, t_stack *cheapest)
 {
-	
+	int	count;
+	int	size_a;
+	int	size_b;
+
+	count = 0;
+	size_a = stack_size(*a);
+	size_b = stack_size(*b);
+	if (size_a > size_b)
+		count = size_b - cheapest->target_node->index;
+	else if(size_a < size_b)
+		count = size_a - cheapest->index;
+	else if (size_a == size_b)
+	{
+		if (cheapest->index >= cheapest->target_node->index)
+			count = size_a - cheapest->index;
+		else
+			count = size_b - cheapest->target_node->index;
+	}
+	while (count != 0)
+	{
+		rrr(a, b);
+		count--;
+	}
 }
 
 // This function moves a node to the top of the stack
@@ -78,10 +109,10 @@ void	move_nodes(t_stack **a, t_stack **b, t_stack *cheapest)
 	if (cheapest->index != 0 && cheapest->target_node->index != 0)
 	{
 		if (cheapest->below == false && cheapest->target_node->below == false)
-			move_rr(a, b, cheapest);
+			do_rr(a, b, cheapest);
 		else if (cheapest->below == true
 			&& cheapest->target_node->below == true)
-			move_rrr(a, b, cheapest);
+			do_rrr(a, b, cheapest);
 	}
 	set_index(a);
 	set_index(b);

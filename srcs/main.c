@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: samperez <samperez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:50:00 by samperez          #+#    #+#             */
-/*   Updated: 2025/02/14 13:27:58 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/16 11:58:46 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	main(int argc, char **argv)
 		else
 			push_swap(&a, &b);
 	}
+//	printf("Stack is %ssorted\n", stack_sorted(a) ? "" : "not ");
 	free_stack(&a);
 	free_stack(&b);
 }
