@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samperez <samperez@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:26:08 by samperez          #+#    #+#             */
-/*   Updated: 2025/02/03 11:38:30 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:11:53 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,24 @@ t_stack	*find_smallest(t_stack *head)
 	return (smallest);
 }
 
-t_stack	*return_highest_node(t_stack *head)
+t_stack	*find_highest_node(t_stack *stack)
 {
-	t_stack	*highest;
+	int			highest;
+	t_stack		*highest_node;
 
-	highest = head;
-	if (NULL == head)
+	if (NULL == stack)
 		return (NULL);
-	while (head->next)
+	highest = INT_MIN;
+	while (stack)
 	{
-		if (head->nbr > highest->nbr)
-			highest = head;
-		head = head->next;
+		if (stack->nbr > highest)
+		{
+			highest = stack->nbr;
+			highest_node = stack;
+		}
+		stack = stack->next;
 	}
-	if (head->nbr > highest->nbr)
-		highest = head;
-	return (highest);
+	return (highest_node);
 }
 
 t_stack	*get_last_node(t_stack *head)
@@ -74,27 +76,15 @@ t_stack	*get_last_node(t_stack *head)
 	return (head);
 }
 
-void	append_node(t_stack **a, int nbr)
+bool	stack_sorted(t_stack	*stack)
 {
-	t_stack	*node;
-	t_stack	*last_node;
-
-	if (NULL == a)
-		return ;
-	node = malloc(sizeof(t_stack));
-	if (NULL == node)
-		return ;
-	node->next = NULL;
-	node->nbr = nbr;
-	if (NULL == *a)
+	if (NULL == stack)
+		return (1);
+	while (stack->next)
 	{
-		*a = node;
-		node->prev = NULL;
+		if (stack->nbr > stack->next->nbr)
+			return (false);
+		stack = stack->next;
 	}
-	else
-	{
-		last_node = get_last_node(*a);
-		last_node->next = node;
-		node->prev = last_node;
-	}
+	return (true);
 }

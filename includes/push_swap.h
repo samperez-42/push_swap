@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:49:56 by samperez          #+#    #+#             */
-/*   Updated: 2025/02/14 10:31:04 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:27:14 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,23 +44,12 @@ void			push_swap(t_stack **a, t_stack **b);
 t_stack			*calculate_cost(t_stack **a, t_stack **b);
 // Moves the cheapest node on stack a and its target node in stack b to the top
 void			move_nodes(t_stack **a, t_stack **b, t_stack *cheapest);
-// These two functions move the cheapest node and its target node to the top
-void			do_move(t_stack **a, t_stack *node);
-void			do_move_target(t_stack **b, t_stack *cheapest);
+// Used for bringing a node to the top of the stack
+void			finish_rotation(t_stack **stack, t_stack *top_node, char name);
 // Sets a target node in stack b for every node in stack a
 void			set_target_nodes(t_stack **a, t_stack **b);
-// Once stack b is sorted, this function ra's to the correct pos for b to push
-void			set_correct_pos(t_stack **a, t_stack **b);
-/*
-	Once stack a is sorted, this function rotates or reverse rotates a 
-	to get the smallest node to the top of the stack
-*/
+// Gets the smallest node to the top of stack a
 void			check_rotation(t_stack **a);
-/* 
-	This function ensures the highest node is at the top of b 
-	to begin pushing back to a
-*/
-void			set_up_b(t_stack **b);
 
 /* Error / Free */
 
@@ -88,7 +77,7 @@ void			append_node(t_stack **a, int nbr);
 // Returns a pointer to the node that has the smallest nbr value
 t_stack			*find_smallest(t_stack *head);
 // Returns a pointer to the node that has the highest nbr value
-t_stack			*return_highest_node(t_stack *head);
+t_stack			*find_highest_node(t_stack *head);
 // Sets the current position of each node in the stack counting from 1
 void			set_index(t_stack **stack);
 

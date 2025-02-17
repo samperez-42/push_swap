@@ -6,7 +6,7 @@
 /*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:01:54 by samperez          #+#    #+#             */
-/*   Updated: 2025/02/11 15:14:11 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:11:37 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,29 @@
 static void	find_target_node(t_stack **a, t_stack **b)
 {
 	t_stack	*target_node;
-	t_stack	*b_head;
+	t_stack	*a_head;
 	int		value;
 
-	value = INT_MIN;
-	b_head = *b;
+	value = INT_MAX;
+	a_head = *a;
 	target_node = NULL;
-	while (*b)
+	while (*a)
 	{
-		if ((*b)->nbr >= value && (*b)->nbr < (*a)->nbr)
+		if ((*a)->nbr <= value && (*b)->nbr < (*a)->nbr)
 		{
-			target_node = *b;
-			value = (*b)->nbr;
+			target_node = *a;
+			value = (*a)->nbr;
 		}
-		*b = (*b)->next;
+		*a = (*a)->next;
 	}
-	if (INT_MIN == value)
+	if (INT_MAX == value)
 	{
-		*b = b_head;
-		(*a)->target_node = return_highest_node(*b);
+		*a = a_head;
+		(*b)->target_node = find_smallest(*a);
 	}
 	else
-		(*a)->target_node = target_node;
-	*b = b_head;
+		(*b)->target_node = target_node;
+	*a = a_head;
 }
 
 void	set_target_nodes(t_stack **a, t_stack **b)
@@ -47,10 +47,10 @@ void	set_target_nodes(t_stack **a, t_stack **b)
 
 	a_head = *a;
 	b_head = *b;
-	while (*a)
+	while (*b)
 	{
 		find_target_node(a, b);
-		*a = (*a)->next;
+		*b = (*b)->next;
 	}
 	*a = a_head;
 	*b = b_head;
@@ -76,5 +76,49 @@ void	set_index(t_stack **stack)
 			current->below = true;
 		pos++;
 		current = current->next;
+	}
+}
+
+void	check_rotation(t_stack **a)
+{
+	t_stack	*smallest;
+
+	smallest = NULL;
+	set_index(a);
+	if (!stack_sorted(*a))
+	{
+		smallest = find_smallest(*a);
+		if (!smallest->below)
+			while (*a != smallest)
+				ra(a);
+		else
+			while (*a != smallest)
+				rra(a);
+	}
+	set_index(a);
+}
+
+void	append_node(t_stack **a, int nbr)
+{
+	t_stack	*node;
+	t_stack	*last_node;
+
+	if (NULL == a)
+		return ;
+	node = malloc(sizeof(t_stack));
+	if (NULL == node)
+		return ;
+	node->next = NULL;
+	node->nbr = nbr;
+	if (NULL == *a)
+	{
+		*a = node;
+		node->prev = NULL;
+	}
+	else
+	{
+		last_node = get_last_node(*a);
+		last_node->next = node;
+		node->prev = last_node;
 	}
 }
