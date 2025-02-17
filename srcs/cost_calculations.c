@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cost_calculations.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samperez <samperez@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 10:40:36 by samperez          #+#    #+#             */
-/*   Updated: 2025/02/16 11:09:44 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:04:49 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	cost_calculations(t_stack **a, int size_a, int size_b)
 		(*a)->push_cost = 1 + (size_a - (*a)->index) + (*a)->target_node->index;
 	}
 	else if ((*a)->below == false && (*a)->target_node->below == true)
-	{	
+	{
 		(*a)->push_cost = 1 + (*a)->index + (size_b - (*a)->target_node->index);
 	}
 	else if ((*a)->below == true && (*a)->target_node->below == true)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   do_move.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samperez <samperez@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: samperez <samperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:20:58 by samperez          #+#    #+#             */
-/*   Updated: 2025/02/16 11:56:14 by samperez         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:04:55 by samperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	do_rrr(t_stack **a, t_stack **b, t_stack *cheapest)
 	size_b = stack_size(*b);
 	if (size_a > size_b)
 		count = size_b - cheapest->target_node->index;
-	else if(size_a < size_b)
+	else if (size_a < size_b)
 		count = size_a - cheapest->index;
 	else if (size_a == size_b)
 	{
